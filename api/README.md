@@ -74,3 +74,21 @@ The API includes basic error handling for:
 - General server errors
 
 All errors will return a 500 status code with an error message. 
+
+To restart your Next.js frontend, follow these steps:
+
+1. **Open a new terminal window/tab** (or use your current one).
+2. **Navigate to the frontend directory:**
+   ```sh
+   cd frontend
+   ```
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+4. **Open your browser and go to:**  
+   [http://localhost:3000](http://localhost:3000)
+
+This will launch your frontend in development mode, and you should be able to interact with your chatbot UI.
+
+Let me know if you encounter any issues! 
