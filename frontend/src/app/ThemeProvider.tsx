@@ -30,12 +30,24 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
       <div
         style={{
           minHeight: "100vh",
-          background: theme.background,
-          backgroundSize: "auto",
-          transition: "background 0.5s",
+          // Split background into color and image for longhand properties
+          ...(() => {
+            // Try to extract color and image from theme.background
+            const bg = theme.background;
+            const colorMatch = bg.match(/(#[0-9a-fA-F]{3,6}|rgba?\([^)]*\)|[a-zA-Z]+)\s*(,|$)/);
+            const imageMatch = bg.match(/url\([^)]+\)/);
+            return {
+              backgroundColor: colorMatch ? colorMatch[1] : undefined,
+              backgroundImage: imageMatch ? imageMatch[0] : undefined,
+              backgroundRepeat: imageMatch ? "repeat" : undefined,
+              backgroundPosition: imageMatch ? "center" : undefined,
+              backgroundSize: imageMatch ? "auto auto" : undefined,
+              transition: "background 0.5s",
+            };
+          })(),
         }}
       >
-        {children}
+          {children}
       </div>
     </ThemeContext.Provider>
   );

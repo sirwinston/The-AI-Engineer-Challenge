@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import styles from "./page.module.css";
+import ThemeSwitchButton from "./ThemeSwitchButton";
 
 // 8-bit pixel font from Google Fonts
 const PIXEL_FONT_URL =
@@ -90,7 +91,8 @@ export default function Home() {
     <div className={styles.page} style={{ fontFamily: '"Press Start 2P", monospace' }}>
       {/* Load 8-bit font */}
       <link rel="stylesheet" href={PIXEL_FONT_URL} />
-      <main className={styles.main} style={{ width: 400, maxWidth: "100%", background: "#222", border: "4px solid #fff", borderRadius: 8, boxShadow: "0 0 0 4px #000", padding: 16 }}>
+      <main className={styles.main} style={{ position: "relative", width: 400, maxWidth: "100%", background: "#222", border: "4px solid #fff", borderRadius: 8, boxShadow: "0 0 0 4px #000", padding: 16 }}>
+        <ThemeSwitchButton />
         <h1 style={{ color: "#fff", textShadow: "2px 2px 0 #000", fontSize: 18, marginBottom: 8 }}>8-Bit Chatbot</h1>
         <div style={{ background: "#111", color: "#fff", minHeight: 200, maxHeight: 300, overflowY: "auto", border: "2px solid #fff", borderRadius: 4, padding: 8, marginBottom: 8 }}>
           {messages.length === 0 && <div style={{ color: "#888" }}>Say hello!</div>}
